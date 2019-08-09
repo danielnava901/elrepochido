@@ -26,10 +26,16 @@ class FormContainer extends Component {
             minLength: 3,
             isRequired: true // just added this
           }
-
         },
         password: {
-          value: ''
+          value: '',
+          placeholder: 'Password',
+          valid: false,
+          touched: true,
+          validationRules: {
+            minLength: 3,
+            isRequired: true // just added this
+          }
         }
       }
     };
@@ -84,6 +90,16 @@ class FormContainer extends Component {
           valid={formControls.email.valid}
           touched={formControls.email.touched}
         />
+          <Input
+              text='Password'
+              label='password'
+              type='password'
+              id='password'
+              value={formControls.password.value}
+              handleChange={this.handleChange}
+              valid={formControls.password.valid}
+              touched={formControls.password.touched}
+          />
       </form>
     );
   }
